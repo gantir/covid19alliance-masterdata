@@ -1,0 +1,222 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "schema for covid india alliance master data specification",
+    "self": {
+        "vendor": "com.covidalliance",
+        "name": "master_data",
+        "format": "jsonschema",
+        "version": "1-0-0"
+    },
+    "type": "object",
+    "properties": {
+        "name": {
+            "description": "Either the organization name or the person contact name. If more than one is present separate by pipe(|) character",
+            "required": true,
+            "type": "string",
+            "minlength": 1,
+            "maxlength": 255
+        },
+        "phone_1": {
+            "description": "Unique Phone Number",
+            "required": true,
+            "type": "string",
+            "minlength": 3,
+            "maxlength": 10
+        },
+        "phone_2": {
+            "description": "Comma separated list of all other available numbers",
+            "required": false,
+            "type": "string",
+            "minlength": 10,
+            "maxlength": 255
+        },
+        "category": {
+            "description": "The category for which the information is being gathered",
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "oxygen",
+                "medicine",
+                "hospital",
+                "ambulance",
+                "helpline",
+                "vaccine",
+                "testing",
+                "food"
+            ]
+        },
+        "state": {
+            "description": "State / Union Territory of India",
+            "required": true,
+            "type": "string",
+            "minlength": 3,
+            "maxlength": 127
+        },
+        "district": {
+            "description": "District of a State / Union Territory of India",
+            "required": false,
+            "type": "string",
+            "minlength": 3,
+            "maxlength": 127
+        },
+        "city": {
+            "description": "City of a State / Union Territory of India",
+            "required": true,
+            "type": "string",
+            "minlength": 3,
+            "maxlength": 127
+        },
+        "pin_code": {
+            "description": "Pincode of the location",
+            "required": false,
+            "type": "string",
+            "minlength": 6,
+            "maxlength": 6
+        },
+        "address": {
+            "description": "Address of the organization, person",
+            "required": false,
+            "type": "string",
+            "minlength": 1,
+            "maxlength": 5000
+        },
+        "resource_type": {
+            "description": "Resource Type for a given category",
+            "required": true,
+            "type": "string",
+            "minlength": 1,
+            "maxlength": 255
+        },
+        "quantity_available": {
+            "description": "Generic field to capture available quantity where relevant for the resource type",
+            "required": false,
+            "type": "string",
+            "minlength": 1,
+            "maxlength": 255
+        },
+        "resource_availability": {
+            "description": "Whether the resource type chosen is available or any other status",
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "available",
+                "not available"
+            ]
+        },
+        "verification_status": {
+            "description": "The verification status based on last verified disposition",
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "unavailable",
+                "available",
+                "unreachable",
+                "bogus",
+                "not verified",
+                "verified",
+                "3rd_party_verified"
+            ]
+        },
+        "last_verified_by": {
+            "description": "The name of the person who last verified this resource",
+            "type": "string",
+            "required": true,
+            "minlength":3,
+            "maxlength": 127
+        },
+        "created_by": {
+            "description": "The name of the person who last verified this resource",
+            "type": "string",
+            "required": true,
+            "minlength":3,
+            "maxlength": 127
+        },
+        "last_verified_on": {
+            "description": "The datetime at which this resource was last verified",
+            "type": "datetime",
+            "required": true
+        },
+        "created_on": {
+            "description": "The datetime at which this resource was created",
+            "type": "datetime",
+            "required": true
+        },
+        "verifier_comment": {
+            "description": "Any comments added by the verifier",
+            "required": false,
+            "type": "string",
+            "minlength": 5,
+            "maxlength": 5000
+        },
+        "description": {
+            "description": "Brief description of the product",
+            "required": true,
+            "type": "string",
+            "minlength": 1,
+            "maxlength": 5000
+        },
+        "email": {
+            "description": "Comma separated list of valid emails for the organization/person",
+            "required": false,
+            "type": "string",
+            "minlength": 5,
+            "maxlength": 5000
+        },
+        "price": {
+            "description": "Price of the resource where applicable",
+            "required": false,
+            "type": "string",
+            "minlength": 5,
+            "maxlength": 15
+        },
+        "source_link": {
+            "description": "Web link of the source",
+            "required": false,
+            "type": "string",
+            "minlength": 10,
+            "maxlength": 5000
+        },
+        "source_name": {
+            "description": "Name from which this resource information was obtained",
+            "required": false,
+            "type": "string",
+            "minlength": 3,
+            "maxlength": 255
+        },
+        "comment": {
+            "description": "Review comments",
+            "required": false,
+            "type": "string",
+            "minlength": 5,
+            "maxlength": 5000
+        },
+        "hospital_available_normal_beds": {
+            "description": "Conditionally required field for hospital category",
+            "required": false,
+            "type": "string",
+            "minlength": 1,
+            "maxlength": 15
+        },
+        "hospital_available_oxygen_beds": {
+            "description": "Conditionally required field for hospital category",
+            "required": false,
+            "type": "string",
+            "minlength": 1,
+            "maxlength": 15
+        },
+        "hospital_available_icu_beds": {
+            "description": "Conditionally required field for hospital category",
+            "required": false,
+            "type": "string",
+            "minlength": 1,
+            "maxlength": 15
+        },
+        "hospital_available_ventilator_beds": {
+            "description": "Conditionally required field for hospital category",
+            "required": false,
+            "type": "string",
+            "minlength": 1,
+            "maxlength": 15
+        }
+    }
+}
