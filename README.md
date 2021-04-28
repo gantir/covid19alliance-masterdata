@@ -5,11 +5,10 @@ This repository contanis the schema for master data maintained by the covid alli
 Current Support:
 
 * Organization
-** CovidIndiaCampaign[https://covidindiacampaign.org]
+  * [CovidIndiaCampaign](https://covidindiacampaign.org)
 
 * Source
-** Google Sheets
+  * Google Sheets
 
 * Destination
-** CSV
-
+  * CSV
